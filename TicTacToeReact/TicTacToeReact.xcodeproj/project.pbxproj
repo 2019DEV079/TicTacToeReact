@@ -11,6 +11,9 @@
 		6D9AB0BB21F9149A00204C93 /* GameBoardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0BA21F9149A00204C93 /* GameBoardCoordinator.swift */; };
 		6D9AB0BD21F914CE00204C93 /* GameBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0BC21F914CE00204C93 /* GameBoardViewModel.swift */; };
 		6D9AB0BF21F914FF00204C93 /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0BE21F914FF00204C93 /* GameBoardViewController.swift */; };
+		6D9AB0C221F9194800204C93 /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0C121F9194800204C93 /* MainStore.swift */; };
+		6D9AB0C721F919B500204C93 /* MainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0C621F919B500204C93 /* MainState.swift */; };
+		6D9AB0C921F91A6F00204C93 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0C821F91A6F00204C93 /* GameState.swift */; };
 		6DB759F021F90ED200CB617E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB759EF21F90ED200CB617E /* AppDelegate.swift */; };
 		6DB759F721F90ED200CB617E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DB759F621F90ED200CB617E /* Assets.xcassets */; };
 		6DB759FA21F90ED200CB617E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DB759F821F90ED200CB617E /* LaunchScreen.storyboard */; };
@@ -37,6 +40,9 @@
 		6D9AB0BA21F9149A00204C93 /* GameBoardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardCoordinator.swift; sourceTree = "<group>"; };
 		6D9AB0BC21F914CE00204C93 /* GameBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewModel.swift; sourceTree = "<group>"; };
 		6D9AB0BE21F914FF00204C93 /* GameBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewController.swift; sourceTree = "<group>"; };
+		6D9AB0C121F9194800204C93 /* MainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
+		6D9AB0C621F919B500204C93 /* MainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainState.swift; sourceTree = "<group>"; };
+		6D9AB0C821F91A6F00204C93 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		6DB759EC21F90ED200CB617E /* TicTacToeReact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeReact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DB759EF21F90ED200CB617E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DB759F621F90ED200CB617E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +94,40 @@
 			path = GameBoard;
 			sourceTree = "<group>";
 		};
+		6D9AB0C021F9190600204C93 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				6D9AB0C521F919A200204C93 /* Reducers */,
+				6D9AB0C421F9199500204C93 /* States */,
+				6D9AB0C321F9198800204C93 /* Actions */,
+				6D9AB0C121F9194800204C93 /* MainStore.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		6D9AB0C321F9198800204C93 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		6D9AB0C421F9199500204C93 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				6D9AB0C621F919B500204C93 /* MainState.swift */,
+				6D9AB0C821F91A6F00204C93 /* GameState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		6D9AB0C521F919A200204C93 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
 		6DB759E321F90ED200CB617E = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +151,7 @@
 		6DB759EE21F90ED200CB617E /* TicTacToeReact */ = {
 			isa = PBXGroup;
 			children = (
+				6D9AB0C021F9190600204C93 /* Redux */,
 				6D9AB0B921F9148300204C93 /* GameBoard */,
 				6D9AB0B621F913EB00204C93 /* Coordinator */,
 				6DB759EF21F90ED200CB617E /* AppDelegate.swift */,
@@ -322,10 +363,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D9AB0C721F919B500204C93 /* MainState.swift in Sources */,
 				6D9AB0BB21F9149A00204C93 /* GameBoardCoordinator.swift in Sources */,
 				6D9AB0BD21F914CE00204C93 /* GameBoardViewModel.swift in Sources */,
 				6D9AB0B821F9140200204C93 /* Coordinator.swift in Sources */,
 				6D9AB0BF21F914FF00204C93 /* GameBoardViewController.swift in Sources */,
+				6D9AB0C921F91A6F00204C93 /* GameState.swift in Sources */,
+				6D9AB0C221F9194800204C93 /* MainStore.swift in Sources */,
 				6DB759F021F90ED200CB617E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
