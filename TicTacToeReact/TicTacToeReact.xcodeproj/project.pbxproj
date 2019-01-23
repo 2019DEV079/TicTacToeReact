@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6DB759F021F90ED200CB617E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB759EF21F90ED200CB617E /* AppDelegate.swift */; };
-		6DB759F221F90ED200CB617E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB759F121F90ED200CB617E /* ViewController.swift */; };
-		6DB759F521F90ED200CB617E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DB759F321F90ED200CB617E /* Main.storyboard */; };
 		6DB759F721F90ED200CB617E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DB759F621F90ED200CB617E /* Assets.xcassets */; };
 		6DB759FA21F90ED200CB617E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DB759F821F90ED200CB617E /* LaunchScreen.storyboard */; };
 		6DB75A0521F90ED200CB617E /* TicTacToeReactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB75A0421F90ED200CB617E /* TicTacToeReactTests.swift */; };
@@ -33,8 +31,6 @@
 		630DA5619CF00E909D6CC28B /* Pods-TicTacToeReact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicTacToeReact.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicTacToeReact/Pods-TicTacToeReact.release.xcconfig"; sourceTree = "<group>"; };
 		6DB759EC21F90ED200CB617E /* TicTacToeReact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeReact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DB759EF21F90ED200CB617E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6DB759F121F90ED200CB617E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6DB759F421F90ED200CB617E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DB759F621F90ED200CB617E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DB759F921F90ED200CB617E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DB759FB21F90ED200CB617E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,8 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				6DB759EF21F90ED200CB617E /* AppDelegate.swift */,
-				6DB759F121F90ED200CB617E /* ViewController.swift */,
-				6DB759F321F90ED200CB617E /* Main.storyboard */,
 				6DB759F621F90ED200CB617E /* Assets.xcassets */,
 				6DB759F821F90ED200CB617E /* LaunchScreen.storyboard */,
 				6DB759FB21F90ED200CB617E /* Info.plist */,
@@ -216,7 +210,6 @@
 			files = (
 				6DB759FA21F90ED200CB617E /* LaunchScreen.storyboard in Resources */,
 				6DB759F721F90ED200CB617E /* Assets.xcassets in Resources */,
-				6DB759F521F90ED200CB617E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +294,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DB759F221F90ED200CB617E /* ViewController.swift in Sources */,
 				6DB759F021F90ED200CB617E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,14 +317,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6DB759F321F90ED200CB617E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6DB759F421F90ED200CB617E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6DB759F821F90ED200CB617E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
