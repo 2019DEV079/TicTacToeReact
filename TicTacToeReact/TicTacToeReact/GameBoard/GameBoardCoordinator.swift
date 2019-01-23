@@ -11,6 +11,7 @@ import UIKit
 final class GameBoardCoordinator: BaseCoordinator {
     
     private var window: UIWindow?
+    private var storeProvider: (() -> StoreProtocol)?
     private weak var gameBoardViewController: GameBoardViewController? {
         return window?.rootViewController as? GameBoardViewController
     }
@@ -19,13 +20,18 @@ final class GameBoardCoordinator: BaseCoordinator {
         super.init(navigationController: navigationController)
     }
     
-    convenience init(window: UIWindow?, navigationController: UINavigationController) {
+    convenience init(window: UIWindow?, navigationController: UINavigationController, storeProvider: @escaping () -> StoreProtocol) {
         self.init(navigationController: navigationController)
         self.window = window
+        self.storeProvider = storeProvider
     }
     
     override func start() {
-        let viewModel = GameBoardViewModel()
+        guard let getStore = storeProvider else {
+            print("storeProvider missing after initialization")
+            return
+        }
+        let viewModel = GameBoardViewModel(getStore: getStore)
         viewModel.delegate = self
         let viewController = GameBoardViewController(viewModel: viewModel)
         window?.rootViewController = viewController

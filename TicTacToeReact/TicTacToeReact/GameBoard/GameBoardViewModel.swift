@@ -13,7 +13,11 @@ protocol GameBoardViewModelDelegate: class {
 class GameBoardViewModel {
     
     // MARK: Properties
-    
     var delegate: GameBoardViewModelDelegate?
-    
+    private let getStore: () -> StoreProtocol
+
+    // MARK: Initializers
+    init(getStore: @escaping () -> StoreProtocol) {
+        self.getStore = getStore
+    }
 }
