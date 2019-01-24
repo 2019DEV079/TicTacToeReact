@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  TicTacToeReact
+
+  Created by Kristof Peleman on 24/01/19.
+  Copyright © 2019 altran. All rights reserved.
+*/
+
+"startButtonTitle" = "Commencer Le Jeu";
+"titleLabelText" = "Tic Tac Toe";
