@@ -26,6 +26,14 @@ class GameBoardViewController: UIViewController {
         return label
     }()
 
+    private let statusLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor.white
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 20)
+        return label
+    }()
+
     private let startButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.white
@@ -42,6 +50,8 @@ class GameBoardViewController: UIViewController {
     init(viewModel: GameBoardViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+
+        setupRx()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,12 +73,22 @@ class GameBoardViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.text = viewModel.getLocalizedTitleLabelText()
         titleLabel.backgroundColor = .clear
+        statusLabel.textAlignment = .center
+        statusLabel.backgroundColor = .clear
         startButton.setTitle(viewModel.getLocalizedStartButtonTitle(), for: .normal)
         startButton.backgroundColor = .clear
 
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(25)
+            make.left.equalToSuperview().offset(25)
+            make.right.equalToSuperview().offset(-25)
+            make.height.equalTo(40)
+        }
+
+        view.addSubview(statusLabel)
+        statusLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
             make.left.equalToSuperview().offset(25)
             make.right.equalToSuperview().offset(-25)
             make.height.equalTo(40)
@@ -98,6 +118,22 @@ class GameBoardViewController: UIViewController {
                 guard let `self` = self else { return }
                 self.viewModel.didTapStart()
             })
+            .disposed(by: disposeBag)
+
+        viewModel.gameStatusObservable.subscribe(onNext: { [weak self] gameStatus in
+            guard let `self` = self else { return }
+            if let status = gameStatus, status == .started {
+                self.gameCollectionView.reloadData()
+            }
+        })
+            .disposed(by: disposeBag)
+
+        viewModel.currentPlayerObservable.subscribe(onNext: { [weak self] player in
+            guard let `self` = self else { return }
+            if let playerOnTurn = player {
+                self.statusLabel.text = "\(playerOnTurn): Make your choice"
+            }
+        })
             .disposed(by: disposeBag)
     }
 
@@ -136,6 +172,7 @@ extension GameBoardViewController: UICollectionViewDataSource {
 extension GameBoardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected \(indexPath)")
+        viewModel.boardCellSelectedAt(indexPath)
     }
 }
 

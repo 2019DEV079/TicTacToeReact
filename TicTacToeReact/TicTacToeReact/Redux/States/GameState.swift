@@ -8,13 +8,21 @@
 
 import ReSwift
 
+enum GameStatus {
+    case started, active, ended
+}
+
 struct GameState: StateType {
     var currentPlayer: String?
+    var gameStatus: GameStatus?
+    var currentCellSelected: BoardCell?
 }
 
 extension GameState: Equatable {
     
     static func == (lhs: GameState, rhs: GameState) -> Bool {
-        return lhs.currentPlayer == rhs.currentPlayer
+        return lhs.currentPlayer == rhs.currentPlayer &&
+            lhs.gameStatus == rhs.gameStatus &&
+            lhs.currentCellSelected == rhs.currentCellSelected
     }
 }

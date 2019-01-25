@@ -8,6 +8,12 @@
 
 import ReSwift
 
+struct StartGameAction: Action {}
+
 struct UpdatePlayerTurnAction: Action {
     let player: String
+}
+
+struct BoardCellSelectionAction: Action {
+    let boardCell: BoardCell
 }

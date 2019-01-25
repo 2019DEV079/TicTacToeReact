@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class GameBoardCollectionViewCell: UICollectionViewCell {
+
     var viewModel: GameBoardCollectionViewCellViewModel?
+    private let displayLabel = UILabel()
+
     override var reuseIdentifier: String? {
         return "boardcell"
     }
@@ -27,5 +31,14 @@ class GameBoardCollectionViewCell: UICollectionViewCell {
 
     private func styleViews() {
         backgroundColor = .white
+
+        addSubview(displayLabel)
+        displayLabel.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
+        }
+    }
+
+    func update() {
+        displayLabel.text = viewModel?.selected()
     }
 }
