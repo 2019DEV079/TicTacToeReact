@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6D24B85D21FA56F10055F58A /* GameBoardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D24B85C21FA56F10055F58A /* GameBoardCollectionViewCell.swift */; };
 		6D24B85F21FA58450055F58A /* GameBoardCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D24B85E21FA58450055F58A /* GameBoardCollectionViewCellViewModel.swift */; };
+		6D24B86221FA6CE20055F58A /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D24B86121FA6CE20055F58A /* BoardCell.swift */; };
+		6D24B86421FA844F0055F58A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D24B86321FA844F0055F58A /* GameManager.swift */; };
 		6D9AB0B821F9140200204C93 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0B721F9140200204C93 /* Coordinator.swift */; };
 		6D9AB0BB21F9149A00204C93 /* GameBoardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0BA21F9149A00204C93 /* GameBoardCoordinator.swift */; };
 		6D9AB0BD21F914CE00204C93 /* GameBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9AB0BC21F914CE00204C93 /* GameBoardViewModel.swift */; };
@@ -46,6 +48,8 @@
 		630DA5619CF00E909D6CC28B /* Pods-TicTacToeReact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicTacToeReact.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicTacToeReact/Pods-TicTacToeReact.release.xcconfig"; sourceTree = "<group>"; };
 		6D24B85C21FA56F10055F58A /* GameBoardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardCollectionViewCell.swift; sourceTree = "<group>"; };
 		6D24B85E21FA58450055F58A /* GameBoardCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		6D24B86121FA6CE20055F58A /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
+		6D24B86321FA844F0055F58A /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		6D9AB0B721F9140200204C93 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6D9AB0BA21F9149A00204C93 /* GameBoardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardCoordinator.swift; sourceTree = "<group>"; };
 		6D9AB0BC21F914CE00204C93 /* GameBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 				6D24B85E21FA58450055F58A /* GameBoardCollectionViewCellViewModel.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		6D24B86021FA6CCD0055F58A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6D24B86121FA6CE20055F58A /* BoardCell.swift */,
+				6D24B86321FA844F0055F58A /* GameManager.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		6D9AB0B621F913EB00204C93 /* Coordinator */ = {
@@ -202,6 +215,7 @@
 		6DB759EE21F90ED200CB617E /* TicTacToeReact */ = {
 			isa = PBXGroup;
 			children = (
+				6D24B86021FA6CCD0055F58A /* Utilities */,
 				6D9AB0D321F92CBB00204C93 /* Translation */,
 				6D9AB0D021F9207400204C93 /* DependencyInjection */,
 				6D9AB0C021F9190600204C93 /* Redux */,
@@ -419,8 +433,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D24B86421FA844F0055F58A /* GameManager.swift in Sources */,
 				6D9AB0C721F919B500204C93 /* MainState.swift in Sources */,
 				6D9AB0BB21F9149A00204C93 /* GameBoardCoordinator.swift in Sources */,
+				6D24B86221FA6CE20055F58A /* BoardCell.swift in Sources */,
 				6D9AB0BD21F914CE00204C93 /* GameBoardViewModel.swift in Sources */,
 				6D9AB0B821F9140200204C93 /* Coordinator.swift in Sources */,
 				6D9AB0D221F9209D00204C93 /* DependencyManager.swift in Sources */,
