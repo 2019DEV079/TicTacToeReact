@@ -10,16 +10,14 @@ import ReSwift
 import RxSwift
 import RxCocoa
 
-protocol GameBoardViewModelDelegate: class {
-    
-}
+protocol GameBoardViewModelDelegate: class {}
 
 class GameBoardViewModel {
     
     // MARK: Properties
 
     var delegate: GameBoardViewModelDelegate?
-    private let getStore: () -> StoreProtocol
+    let getStore: () -> StoreProtocol
     private let disposeBag = DisposeBag()
 
     private let boardCells: [[BoardCell]] = [
@@ -28,6 +26,7 @@ class GameBoardViewModel {
         [.bottomLeft, .bottomMiddle, .bottomRight]
     ]
 
+    lazy var winnerObservable: Observable<String?> = createWinnerObervable()
     lazy var gameStatusObservable: Observable<GameStatus?> = createGameStatusObervable()
     lazy var currentPlayerObservable: Observable<String?> = createCurrentPlayerObervable()
 
@@ -45,7 +44,7 @@ class GameBoardViewModel {
 
     // MARK: Creation of Observables
 
-    func createGameStatusObervable() -> Observable<GameStatus?> {
+    private func createGameStatusObervable() -> Observable<GameStatus?> {
         return getStore().observable.asObservable()
             .map { $0.gameState }
             .unwrap()
@@ -55,7 +54,16 @@ class GameBoardViewModel {
             .map { $0 }
     }
 
-    func createCurrentPlayerObervable() -> Observable<String?> {
+    private func createWinnerObervable() -> Observable<String?> {
+        return getStore().observable.asObservable()
+            .map { $0.gameState }
+            .unwrap()
+            .distinctUntilChanged()
+            .map { $0.winner }
+            .unwrap()
+    }
+
+    private func createCurrentPlayerObervable() -> Observable<String?> {
         return getStore().observable.asObservable()
             .map { $0.gameState }
             .unwrap()
@@ -81,12 +89,13 @@ class GameBoardViewModel {
 
     func boardCellSelectedAt(_ indexPath: IndexPath) {
         let boardCell = boardCells[indexPath.section][indexPath.row]
+
         let action = BoardCellSelectionAction(boardCell: boardCell)
         getStore().dispatch(action)
     }
 
     private func startGame() {
-        let action = UpdatePlayerTurnAction(player: "player 1")
+        let action = UpdateGameStatusAction(status: .active)
         getStore().dispatch(action)
     }
 }

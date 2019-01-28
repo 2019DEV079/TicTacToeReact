@@ -120,14 +120,6 @@ class GameBoardViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.gameStatusObservable.subscribe(onNext: { [weak self] gameStatus in
-            guard let `self` = self else { return }
-            if let status = gameStatus, status == .started {
-                self.gameCollectionView.reloadData()
-            }
-        })
-            .disposed(by: disposeBag)
-
         viewModel.currentPlayerObservable.subscribe(onNext: { [weak self] player in
             guard let `self` = self else { return }
             if let playerOnTurn = player {
@@ -135,6 +127,13 @@ class GameBoardViewController: UIViewController {
             }
         })
             .disposed(by: disposeBag)
+
+        viewModel.winnerObservable.subscribe(onNext: { [weak self] winner in
+            guard let `self` = self else { return }
+            if let winner = winner {
+                self.statusLabel.text = "\(winner)"
+            }
+        }).disposed(by: disposeBag)
     }
 
     // MARK: Custom Methods
@@ -163,7 +162,8 @@ extension GameBoardViewController: UICollectionViewDataSource {
         let cell = gameCollectionView.dequeueReusableCell(withReuseIdentifier: "boardcell", for: indexPath)
         let gameBoardCollectionViewCell = cell as? GameBoardCollectionViewCell
         if gameBoardCollectionViewCell?.viewModel == nil {
-            gameBoardCollectionViewCell?.viewModel = GameBoardCollectionViewCellViewModel()
+            let cellViewModel = GameBoardCollectionViewCellViewModel(getStore: viewModel.getStore, indexPath: indexPath)
+            gameBoardCollectionViewCell?.viewModel = cellViewModel
         }
         return gameBoardCollectionViewCell ?? UICollectionViewCell()
     }
@@ -171,7 +171,6 @@ extension GameBoardViewController: UICollectionViewDataSource {
 
 extension GameBoardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected \(indexPath)")
         viewModel.boardCellSelectedAt(indexPath)
     }
 }
