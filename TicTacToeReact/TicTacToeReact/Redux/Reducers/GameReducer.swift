@@ -16,10 +16,14 @@ final class GameReducer {
         switch action {
         case let action as StartGameAction:
             state = GameReducer.handleStartGameAction(action: action, state: state)
+        case let action as UpdateGameStatusAction:
+            state = GameReducer.handleUpdateGameStatusAction(action: action, state: state)
         case let action as UpdatePlayerTurnAction:
             state = GameReducer.handleUpdatePlayerTurnAction(action: action, state: state)
         case let action as BoardCellSelectionAction:
             state = GameReducer.handleBoardCellSelectionAction(action: action, state: state)
+        case let action as EndGameAction:
+            state = GameReducer.handleEndGameAction(action: action, state: state)
         default:
             break
         }
@@ -31,8 +35,14 @@ final class GameReducer {
     }
 
     private static func handleStartGameAction(action: StartGameAction, state: GameState?) -> GameState {
-        var state = state ?? GameReducer.initialState
+        var state = GameReducer.initialState
         state.gameStatus = .started
+        return state
+    }
+
+    private static func handleUpdateGameStatusAction(action: UpdateGameStatusAction, state: GameState?) -> GameState {
+        var state = state ?? GameReducer.initialState
+        state.gameStatus = action.status
         return state
     }
 
@@ -45,6 +55,13 @@ final class GameReducer {
     private static func handleBoardCellSelectionAction(action: BoardCellSelectionAction, state: GameState?) -> GameState {
         var state = state ?? GameReducer.initialState
         state.currentCellSelected = action.boardCell
+        return state
+    }
+
+    private static func handleEndGameAction(action: EndGameAction, state: GameState?) -> GameState {
+        var state = state ?? GameReducer.initialState
+        state.gameStatus = .ended
+        state.winner = action.message
         return state
     }
 }
