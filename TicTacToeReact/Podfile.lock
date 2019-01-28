@@ -1,14 +1,20 @@
 PODS:
-  - ReSwift (4.0.0)
-  - RxCocoa (4.0.0):
+  - ReSwift (4.0.1)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
-  - RxSwiftExt (3.0.0):
-    - RxSwiftExt/Core (= 3.0.0)
-  - RxSwiftExt/Core (3.0.0):
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxSwiftExt (3.4.0):
+    - RxSwiftExt/Core (= 3.4.0)
+    - RxSwiftExt/RxCocoa (= 3.4.0)
+  - RxSwiftExt/Core (3.4.0):
     - RxSwift (~> 4.0)
-  - SnapKit (4.0.0)
-  - Swinject (2.1.1)
+  - RxSwiftExt/RxCocoa (3.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwiftExt/Core
+  - SnapKit (4.2.0)
+  - Swinject (2.5.0)
 
 DEPENDENCIES:
   - ReSwift
@@ -21,6 +27,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ReSwift
+    - RxAtomic
     - RxCocoa
     - RxSwift
     - RxSwiftExt
@@ -28,12 +35,13 @@ SPEC REPOS:
     - Swinject
 
 SPEC CHECKSUMS:
-  ReSwift: f058ef13b46ae5f463f10605ccbbb7fb04424d8d
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
-  RxSwiftExt: b06c47dff66cd33ca7683bba1e74b0c5c8e3592e
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  Swinject: afea49fd95f392b41171669f165842879c48fad6
+  ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
 
 PODFILE CHECKSUM: c5b5d0fb2671cba598a748dff56d4bc2c693f7dd
 

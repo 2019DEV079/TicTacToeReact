@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "19E8D61638C4FE57F70F11851F11D164"
+               BlueprintIdentifier = "531B9FA3A09D14F417E94C2C77F3EA55"
                BuildableName = "Pods_TicTacToeReact.framework"
                BlueprintName = "Pods-TicTacToeReact"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "19E8D61638C4FE57F70F11851F11D164"
+            BlueprintIdentifier = "531B9FA3A09D14F417E94C2C77F3EA55"
             BuildableName = "Pods_TicTacToeReact.framework"
             BlueprintName = "Pods-TicTacToeReact"
             ReferencedContainer = "container:Pods.xcodeproj">
